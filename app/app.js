@@ -1,21 +1,26 @@
 //install library
-var express = require('express');
-var app = express();
-//test
-var http = require('http').Server(app);
+import express from 'express';
+import http from 'http';
+const app = express();
 const io = require('socket.io')(http);
-const port = process.env,PORT || 7000;
+const port = process.env.port || 7000;
 
-app.get('/',function(req,res){
-    res.sendfile(__dirname+'/index.html');
+app.get('/', (req,res) => {
+    res.json({
+        message:"succes"
+    });
 });
 
 //chenge websocket
-io.on('connection',funcution(socket){
+io.on('connection',(socket) => {
     console.log('connected');
+    // socket conntection
+    socket.on('post',(msg) => {
+        io.emit('member-post', msg);
+    });
 });
 
 //http listening
-http.listen(PORT.funcution(){
-    console.log('server listeing. Port:' + PORT)
-})
+http.listen(port, () => {
+    console.log('server listeing. Port:' + port);
+});
