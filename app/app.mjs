@@ -1,9 +1,24 @@
 //install library
+import http from "http";
+import fs from "fs";
+import path from "path";
+import express from "express";
 import io from "socket.io";
 import json from "./modules/get-iss-pojition-api.mjs";
+let app = express();
+let wss = new io();
+let Port = process.env.Port || 7000;
+
+app.use(express.static(__dirname + "/"));
+
+let server = http.createServer(app);
+server.listen(port);
+
+console.log("http server listening on %d", port);
+
 
 //wait websocket
-io.listen(8023).on('connection', (socket) => {
+wss.on('connection', (socket) => {
   console.log("user connect!");
   let pushflag = true;
   while(pushflag == true){
