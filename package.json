@@ -5,8 +5,7 @@
   "main": "app/app.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app/app.mjs --experimental-modules",
-    "client": "node app/testclient.mjs --experimental-modules"
+    "start": "node app/app.mjs --experimental-modules"
   },
   "repository": {
     "type": "git",
@@ -19,16 +18,7 @@
   },
   "homepage": "https://github.com/saco-2020/tweetfromspace-server#readme",
   "dependencies": {
-    "db": "^3.1.0",
-    "express": "^4.17.1",
-    "http": "^0.0.1-security",
-    "https": "^1.0.0",
-    "moment": "^2.29.0",
-    "mongo": "^0.1.0",
-    "mongodb": "^3.6.2",
-    "mongoose": "^5.10.7",
     "request": "^2.88.2",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.1"
+    "socket.io": "^2.3.0"
   }
 }
