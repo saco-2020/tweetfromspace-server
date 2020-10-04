@@ -1,11 +1,9 @@
 //install library
-import io from"socket.io";
-import getIssPojitionApi from "./modules/get-iss-pojition-api.js";
-io.listen(8023);
-let json = getIssPojitionApi();
-json();
+import io from "socket.io";
+import json from "./modules/get-iss-pojition-api.mjs";
+
 //wait websocket
-io.on('connection', (socket) => {
+io.listen(8023).on('connection', (socket) => {
   console.log("user connect!");
   let pushflag = true;
   while(pushflag == true){

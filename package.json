@@ -2,11 +2,11 @@
   "name": "api-sever",
   "version": "1.0.0",
   "description": "",
-  "main": "app/app.js",
+  "main": "app/app.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app/app.js",
-    "client": "node app/testclient.js"
+    "start": "node app/app.mjs --experimental-modules",
+    "client": "node app/testclient.mjs --experimental-modules"
   },
   "repository": {
     "type": "git",
