@@ -1,4 +1,4 @@
-const request = require('request');
+import request from 'request';
 
 const options = {
         url: 'http://api.open-notify.org/iss-now.json/',
@@ -11,4 +11,4 @@ json = request(options, (error, response, body) => {
         return body;
 });
 
-module.exports = json;
+export default json;

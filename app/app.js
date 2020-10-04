@@ -1,6 +1,7 @@
 //install library
-const io = require("socket.io").listen(8023);
-const getIssPojitionApi = require("./modules/get-iss-pojition-api.js");
+import io from"socket.io";
+import getIssPojitionApi from "./modules/get-iss-pojition-api.js";
+io.listen(8023);
 let json = getIssPojitionApi();
 json();
 //wait websocket
