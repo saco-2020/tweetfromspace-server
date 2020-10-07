@@ -13,6 +13,7 @@ socket.on('connection', (socket) => {
     console.log(json);
   }
   socket.on("disconnect",() =>{
+    socket.emit("disconnect", "bye");
     console.log("disconnect");
     return pushflag = false;
   });
