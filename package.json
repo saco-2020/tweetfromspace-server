@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/saco-2020/tweetfromspace-server#readme",
   "dependencies": {
+    "http": "^0.0.1-security",
     "request": "^2.88.2",
     "socket.io": "^2.3.0"
   }
