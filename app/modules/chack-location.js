@@ -1,4 +1,3 @@
-const 
 const IssPosition = (data) => {
     this.data = data;
 
