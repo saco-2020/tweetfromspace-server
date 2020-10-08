@@ -2,9 +2,9 @@
   "name": "api-sever",
   "version": "1.0.0",
   "description": "",
-  "main": "app/app.mjs",
+  "main": "app/test.js",
   "scripts": {
-    "start": "node app/app.mjs --experimental-modules"
+    "start": "node app/test.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/saco-2020/tweetfromspace-server#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "http": "^0.0.1-security",
     "request": "^2.88.2",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1"
   }
 }

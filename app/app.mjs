@@ -1,15 +1,14 @@
 //install library
+import express from "express";
 import io from "socket.io";
 import http from "http";
 import json from "./modules/get-iss-pojition-api.mjs";
 let port = process.env.Port || 7000;
-let server = http.createServer((req, res) => {
-    res.write("hello");
-    res.end();
-  });
+let server = http.createServer(express(req,res));
 server.listen(port);
 let socket = io(server);
 
+server
 //wait websocket
 socket.on("connection", (socket) => {
   console.log("user connect!");
@@ -28,7 +27,7 @@ socket.on("connection", (socket) => {
 let send_servertime = () => {
     let now = new Date();
     socket.emit("from_server", json);
-    console.log(json);
+    //console.log(json);
     setTimeout(send_servertime, 1000);
 };
 send_servertime();
