@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testpage</title>
+    <title>Minimal working example</title>
 </head>
 <body>
-    <!-- 受信ログ -->
-<ul id="msglist">
-</ul>
-<script  src="/socket.io/socket.io.js"></script>
-<script>
-document.querySelector("#frm-post").addEventListener("submit", (e)=>{
-    // 規定の送信処理をキャンセル(画面遷移しないなど)
-    e.preventDefault();
-});
+    <ul id="events"></ul>
 
-socket.on("from_server", (msg)=>{
-    const list = document.querySelector("#msglist");
-    const li = document.createElement("li");
-    li.innerHTML = `${msg.text}`;
-    list.insertBefore(li, list.firstChild);
-  });
-</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const $events = document.getElementById('events');
+
+        const newItem = (content) => {
+          const item = document.createElement('li');
+          item.innerText = content;
+          return item;
+        };
+
+        const socket = io();
+
+        socket.on('connect', () => {
+          $events.appendChild(newItem('connect'));
+        });
+    </script>
 </body>
 </html>
