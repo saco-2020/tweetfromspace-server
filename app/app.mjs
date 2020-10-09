@@ -1,10 +1,8 @@
 //install library
 import json from "./modules/get-iss-pojition-api.mjs";
 import http from 'http';
-import path from 'path';
 import express from 'express';
 import io from 'socket.io';
-const dirname = path.dirname(new URL(import.meta.url));
 const app = express();
 const port = process.env.Port || 7000;
 const server = http.createServer(app);
