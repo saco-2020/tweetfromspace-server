@@ -6,12 +6,8 @@ import io from 'socket.io';
 const app = express();
 const port = process.env.Port || 7000;
 const server = http.createServer(app);
-const socket = io(server,option);
-const option = {
-  cookie: false,
-  serveClient: false,
-  transports: ['websocket']
-}
+const socket = io(server);
+
 
 app.get('/', (req,res) => {
   res.send("<h1>hallo!</h1>");
