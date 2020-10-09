@@ -5,10 +5,8 @@ const options = {
         method: 'GET'
 }
 
-let json;
-json = request(options, (error, response, body) => {
+export default function json(){ 
+        request(options, (error, response, body) => {
         console.log(body);
-        return body;
-});
-
-export default json;
+        });
+}
