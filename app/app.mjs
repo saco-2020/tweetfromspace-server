@@ -11,7 +11,7 @@ const server = http.createServer(app);
 const socket = io(server);
 
 app.get('/', (req,res) => {
-  res.sendFile(`${dirname}/index.html`);
+  res.send("<h1>hallo!</h1>");
 });
 
 //wait websocket
