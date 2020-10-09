@@ -1,1 +1,1 @@
-web: node app/app.mjs
+web: node start
