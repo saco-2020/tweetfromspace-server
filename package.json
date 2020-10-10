@@ -26,5 +26,8 @@
   },
   "engines": {
     "node": "14.13.x"
+  },
+  "devDependencies": {
+    "request-promise-native": "^1.0.9"
   }
 }
