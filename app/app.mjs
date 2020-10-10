@@ -1,23 +1,29 @@
 //install library
-import json from "./modules/get-iss-pojition-api.mjs";
-import http from 'http';
-import express from 'express';
+import { translate } from "./modules/iss-api.js"; 
+//import http from 'http';
+//import express from 'express';
 import io from 'socket.io';
-const app = express();
-const port = process.env.PORT || 7000;
-const server = http.createServer(app);
-const socket = io(server);
+import { text } from "express";
+//const app = express();
+const port = process.env.PORT || 5000;
+//const server = http.createServer(app);
+const socket = io(port);
 
+// 一定間隔でjsonを"全"クライアントに送る (io.emit)
 
-app.get('/', (req,res) => {
-  res.send("<h1>hallo!</h1>");
-});
+//app.get('/', (req,res) => {
+//  res.send("<h1>hallo!</h1>");
+//});
 
 //wait websocket
 socket.on("connection", (socket) => {
   console.log("user connect!");
 
-  send_servertime();
+  setInterval(() => {
+    translate().then((text) =>{
+      socket.json.emit('msg push',text);
+    });
+  }, 1000);
 
   socket.on("disconnect",() =>{
     console.log("disconnect");
@@ -28,16 +34,6 @@ socket.on("connection", (socket) => {
   });
 });
 
-
-// とりあえず一定間隔でサーバ時刻を"全"クライアントに送る (io.emit)
-let send_servertime = () => {
-    let now = new Date();
-    socket.broadcast.emit("from_server", json);
-    //console.log(json);
-    setTimeout(send_servertime, 1000);
-};
-
-
-server.listen(port,() => {
-    console.log(`Start socket server : http://localhost:${port}`);
-});
+//server.listen(port,() => {
+    console.log(`Start socket server : ws://localhost:${port}. `);
+//});
