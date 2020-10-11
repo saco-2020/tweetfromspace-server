@@ -7,7 +7,7 @@ const option = {
   path: '/',
   cookie: false,
   severClient: false,
-  //transports: ['websocket']
+  transports: ['websocket']
 }
 const socket = io(port, option);
 
