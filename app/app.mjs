@@ -4,9 +4,10 @@ import io from 'socket.io';
 
 const port = process.env.PORT || 5000;
 const option = {
+  path: '/',
   cookie: false,
   severClient: false,
-  transports: ['websocket']
+  //transports: ['websocket']
 }
 const socket = io(port, option);
 
